@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
+  
+  root 'demo#index'
+  
   get "demo/index"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  #get 'demo/hello' # any request coming in as demo/hello would be routed to the demo controller and the hello action
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  get 'demo/about'
+  get 'demo/contact'
+  
 
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  
+  # # default route
+  get ':controller(/:action(/:id))'
 
-  # Defines the root path route ("/")
-  # root "posts#index"
 end
